@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RANBEER DADA</title>
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1859598518329301');
+fbq('track', 'PageView');
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -56,7 +71,7 @@ h1{
     display:block;
     width:100%;
     padding:15px;
-    margin:15px 0;
+    margin:20px 0;
     border-radius:40px;
     text-decoration:none;
     font-weight:600;
@@ -71,13 +86,16 @@ h1{
     border-color:#00cfc2;
 }
 
-.small-btn{
-    font-size:15px;
+/* Countdown Style */
+#countdown{
+    font-size:22px;
+    font-weight:700;
+    color:red;
+    margin-top:10px;
 }
 
-/* Small Bottom Box */
 .ads-box{
-    margin-top:20px;
+    margin-top:25px;
     padding:10px;
     border-radius:12px;
     background:rgba(255,255,255,0.1);
@@ -88,10 +106,6 @@ h1{
     color:#00e0d3;
     text-decoration:none;
     font-weight:600;
-}
-
-.ads-box a:hover{
-    text-decoration:underline;
 }
 
 </style>
@@ -116,9 +130,9 @@ h1{
         SUBSCRIBE FREE
     </a>
 
-    <a href="#" class="btn small-btn">CONTACT ME HERE ✉</a>
+    <!-- 10 Second Countdown -->
+    <div id="countdown">Offer Ends In: 10</div>
 
-    <!-- Bottom Small Box -->
     <div class="ads-box">
         Ads By 
         <a href="https://t.me/+_ldYCcyc-qwwODU1" target="_blank">
@@ -127,6 +141,20 @@ h1{
     </div>
 
 </div>
+
+<script>
+let timeLeft = 10;
+const countdownElement = document.getElementById("countdown");
+
+const timer = setInterval(function() {
+    timeLeft--;
+    countdownElement.innerHTML = "Offer Ends In: " + timeLeft;
+    if(timeLeft <= 0){
+        clearInterval(timer);
+        countdownElement.innerHTML = "Offer Expired!";
+    }
+}, 1000);
+</script>
 
 </body>
 </html>
