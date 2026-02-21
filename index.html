@@ -16,11 +16,14 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '1859598518329301');
+fbq('init', '1526895408413422');
 fbq('track', 'PageView');
 </script>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1526895408413422&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 
 <style>
 *{
@@ -32,12 +35,12 @@ fbq('track', 'PageView');
 
 body{
     height:100vh;
-    background: linear-gradient(180deg, #031d1d, #0f3f3f, #1e7777);
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:#fff;
+    color:white;
+    background: linear-gradient(180deg, #012f2a, #0a5c54);
 }
 
 .container{
@@ -46,124 +49,120 @@ body{
 }
 
 h1{
-    font-size:30px;
+    font-size:38px;
     letter-spacing:4px;
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
-.subtitle{
-    font-size:14px;
-    margin-bottom:10px;
-    opacity:0.9;
+p{
+    font-size:18px;
+    line-height:1.6;
+    color:#e0f7f5;
+    margin-bottom:20px;
 }
 
 .stats{
-    margin:15px 0 30px;
-    font-size:16px;
-}
-
-.stats span{
-    margin-left:15px;
-}
-
-/* 🔥 Premium Button */
-.btn{
-    display:block;
-    width:100%;
-    padding:16px;
-    margin:20px 0;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:700;
+    margin-bottom:30px;
     font-size:18px;
-    color:#fff;
-    background: linear-gradient(45deg, #00f5d4, #00bbf9);
-    box-shadow: 0 0 15px #00f5d4,
-                0 0 30px #00bbf9;
-    transition:0.4s ease-in-out;
-    animation: zoomEffect 2s infinite alternate;
 }
 
-/* Zoom Out Animation */
-@keyframes zoomEffect {
-    0% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.btn{
+    display:inline-block;
+    padding:18px 40px;
+    border-radius:50px;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    color:white;
+    background: linear-gradient(90deg,#00d4c7,#00aaff);
+    box-shadow:0 0 20px rgba(0,255,255,0.7);
+    transition:0.3s;
 }
 
-/* Hover Extra Glow */
 .btn:hover{
-    box-shadow: 0 0 25px #00f5d4,
-                0 0 50px #00bbf9,
-                0 0 70px #00f5d4;
-    transform: scale(1.08);
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(0,255,255,1);
 }
 
-#countdown{
-    font-size:22px;
-    font-weight:700;
+.countdown{
+    margin-top:25px;
+    font-size:26px;
+    font-weight:bold;
     color:red;
-    margin-top:10px;
 }
 
 .ads-box{
-    margin-top:25px;
-    padding:10px;
-    border-radius:12px;
+    margin-top:35px;
+    padding:15px;
+    border-radius:15px;
     background:rgba(255,255,255,0.1);
-    font-size:13px;
+    font-size:16px;
+    transition:0.3s;
 }
 
 .ads-box a{
-    color:#00e0d3;
     text-decoration:none;
-    font-weight:600;
+    color:white;
 }
 
+.ads-box span{
+    color:#00e6e6;
+    font-weight:bold;
+}
+
+.ads-box:hover{
+    background:rgba(255,255,255,0.2);
+}
 </style>
 </head>
+
 <body>
 
 <div class="container">
-
+    
     <h1>RANBEER DADA</h1>
 
-    <div class="subtitle">
+    <p>
         Start making money with trading.<br>
-        Join a dedicated community with over 100.000 Members 🌍
-    </div>
+        Join a dedicated community with over<br>
+        100,000 Members 🌍
+    </p>
 
     <div class="stats">
-        ✔ 85% Win-rate  
-        <span>✔ 1:3 RRR</span>
+        ✔ 85% Win-rate &nbsp;&nbsp; ✔ 1:3 RRR
     </div>
 
-    <a href="https://t.me/+MKm9_PObCPxmZDhl" target="_blank" class="btn">
-        SUBSCRIBE FREE
+    <!-- Join Button -->
+    <a href="https://t.me/+QSPep1OrFio5Y2Jl" 
+       target="_blank" 
+       class="btn"
+       onclick="fbq('track','Lead');">
+       SUBSCRIBE FREE
     </a>
 
-    <div id="countdown">Offer Ends In: 10</div>
+    <div class="countdown">
+        Offer Ends In: <span id="timer">9</span>
+    </div>
 
+    <!-- Ads Box Clickable -->
     <div class="ads-box">
-        Ads By 
         <a href="https://t.me/+_ldYCcyc-qwwODU1" target="_blank">
-            Ck Ads Agancy
+            Ads By <span>Ck Ads Agancy</span>
         </a>
     </div>
 
 </div>
 
 <script>
-let timeLeft = 10;
-const countdownElement = document.getElementById("countdown");
+let time = 9;
+let timer = document.getElementById("timer");
 
-const timer = setInterval(function() {
-    timeLeft--;
-    countdownElement.innerHTML = "Offer Ends In: " + timeLeft;
-    if(timeLeft <= 0){
-        clearInterval(timer);
-        countdownElement.innerHTML = "Offer Expired!";
+setInterval(function(){
+    if(time > 0){
+        time--;
+        timer.innerHTML = time;
     }
-}, 1000);
+},1000);
 </script>
 
 </body>
